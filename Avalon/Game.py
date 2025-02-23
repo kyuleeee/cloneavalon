@@ -17,7 +17,7 @@ class Game:
             logdir: str = 'logs',
             logfile_name: str = 'game_history',
     ):
-        self.players = players  # Store the player instances
+        self.players = players  # Store the player instances (클래스변수)
         self.leader = None
         self.round_result = []
         self.round_vote_result = []
@@ -148,6 +148,7 @@ class Game:
                     # After all players have voted, log the statements
                     for player_id, statement in votes_statements:
                         self._log(f"Player {player_id}", statement)
+                        
                 if fail_counter >= 3 or votes.count(True) > len(
                         self.players) / 2:  # If majority approves the team, go on the mission. Vote on mission only for players who are on the proposed team
                     self._log(
